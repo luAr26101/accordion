@@ -1,4 +1,14 @@
+import { useState } from "react";
+import questionsData from "./data";
+import Question from "./question";
+import Questions from "./questions";
+
 const App = () => {
-  return <h2>Accordion Starter</h2>;
+  const [questions, setQuestions] = useState(questionsData);
+  return (
+    <main>
+      <Questions questions={questions} />
+    </main>
+  );
 };
 export default App;
