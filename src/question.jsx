@@ -1,8 +1,6 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { useState } from "react";
 
-function Question({ title, info }) {
-  const [showInfo, setShowInfo] = useState(false);
+function Question({ title, info, activeIndex, setActiveIndex, id }) {
   return (
     <article className='question'>
       <header>
@@ -10,12 +8,12 @@ function Question({ title, info }) {
         <button
           type='button'
           className='question-btn'
-          onClick={() => setShowInfo((prevShowInfo) => !prevShowInfo)}
+          onClick={() => setActiveIndex(id)}
         >
-          {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}
+          {activeIndex === id ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      {showInfo && <p>{info}</p>}
+      {activeIndex === id && <p>{info}</p>}
     </article>
   );
 }
